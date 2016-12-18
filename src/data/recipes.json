@@ -1,0 +1,64 @@
+{
+    "units": [
+        "pound|s", "gram|s", "cup|s", "bunch|es", "piece|s"
+    ],
+    "ingredients": [{
+        "id": 1,
+        "item": "cream cheese"
+    }, {
+        "id": 2,
+        "item": "sugar"
+    }, {
+        "id": 3,
+        "item": "quality sausage meat"
+    }, {
+        "id": 4,
+        "item": "fresh parsley"
+    }, {
+        "id": 5,
+        "item": "wonton wrappers"
+    }, {
+        "id": 6,
+        "item": "ground pork"
+    }],
+    "recipes": [{
+        "id": 1,
+        "name": "Cheese Cake",
+        "image": "/img/cheesecake.jpg",
+        "rating": 2.5,
+        "ingredients": [{
+            "ingredient_id": 1,
+            "amount": "2 lb"
+        }, {
+            "ingredient_id": 2,
+            "amount": "1 cup"
+        }],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident cum distinctio temporibus quia eaque quas modi aperiam cumque doloremque, iusto error, neque dignissimos nobis? Aspernatur ratione quos rerum cumque qui!"
+    }, {
+        "id": 2,
+        "name": "Scotch Egg",
+        "image": "/img/scotch-egg.jpg",
+        "rating": 4.5,
+        "ingredients": [{
+            "ingredient_id": 3,
+            "amount": "800 grams"
+        }, {
+            "ingredient_id": 4,
+            "amount": "1 small bunch"
+        }],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident cum distinctio temporibus quia eaque quas modi aperiam cumque doloremque, iusto error, neque dignissimos nobis? Aspernatur ratione quos rerum cumque qui!"
+    }, {
+        "id": 3,
+        "name": "Pork Dumpling",
+        "image": "/img/pork-dumpling.jpg",
+        "rating": 5,
+        "ingredients": [{
+            "ingredient_id": 5,
+            "amount": "100 pieces"
+        }, {
+            "ingredient_id": 6,
+            "amount": "1 3/4 lb"
+        }],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident cum distinctio temporibus quia eaque quas modi aperiam cumque doloremque, iusto error, neque dignissimos nobis? Aspernatur ratione quos rerum cumque qui!"
+    }]
+}

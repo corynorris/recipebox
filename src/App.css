@@ -1,0 +1,65 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  position: relative;
+  margin: 0;
+  height: 70px;
+  line-height: 70px;
+  background-color: #222;
+}
+
+.App-header h2 {
+  color: white;
+  font-size: 32px;
+  display: block;
+  margin: auto;
+}
+
+.App-header button {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  margin: 0;
+  padding: 14px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.recipeCard:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.rating {
+  margin: 5px;
+  padding: 10px;
+  background: rgba(255,255,255, 0.9);
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.black {
+  color: black;
+}
+
+.gold {
+  color: #ffc733;
+}
+
+a {
+  color:inherit;
+  text-decoration: none;
+ }

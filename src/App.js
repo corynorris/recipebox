@@ -8,9 +8,11 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <h2>Recipe Box</h2>
-          <button><Link to='/recipes/create'>Create Recipe <i className="fa fa-plus fa-lg" aria-hidden="true"></i></Link></button>
+          <Link to='/recipes/create'><button>Create Recipe <i className="fa fa-plus fa-lg" aria-hidden="true"></i></button></Link>
         </div>
-        { this.props.children }
+        <div className="container">
+          {this.props.children}
+        </div>
       </div>
     );
   }

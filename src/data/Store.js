@@ -1,12 +1,13 @@
 const storage = window.localStorage;
 
-export default class Store {  
+export default class Store {
   constructor(storageKey, defaultData = null) {
     this.storageKey = storageKey;
-    if (typeof(Storage) !== "undefined") {
+    if (typeof (Storage) !== "undefined") {
       this.storageKey = storageKey;
 
-      if (this.isEmpty && (null !== defaultData)) {
+      if (this.isEmpty() && (null !== defaultData)) {
+        console.log('setting defaults');
         this.set(defaultData);
       }
 
@@ -14,7 +15,7 @@ export default class Store {
       throw new Error('Storage not supported');
     }
   }
-  
+
   isEmpty() {
     return null === this.get();
   }

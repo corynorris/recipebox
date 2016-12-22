@@ -1,39 +1,38 @@
 import React from 'react';
 import Recipe from './Recipe'
-import { Link } from 'react-router';
-import Store from '../data/Store.js';
-import defaultData from '../data/recipes.json';
+import RecipeStore from '../data/RecipeStore.js';
 
-const RecipeStoreKey = "recipe_store";
-const RecipeStore = new Store(RecipeStoreKey, defaultData);
-
-const styles = {
-    recipe: {
-        width: '33%',
-        float: 'left',
-        padding: '1rem'
-    },
-}
+const store = new RecipeStore();
 
 class RecipeList extends React.Component {
   componentWillMount() {
-    const data = RecipeStore.get();
+    console.log('mounting');
     this.setState({
-      recipes: data.recipes,
+      recipes: store.getRecipes(),
     })
   }
   render() {
-    return (
-      <div className="recipeList">
-          {this.state.recipes.map(recipe => {
-            return (
-              <div key={recipe.id} style={styles.recipe}>
-                <Recipe recipe={recipe} />
-              </div>
-            )
-          })}
-      </div>
-    );
+    let cards = this.state.recipes.map((recipe, idx) => {
+      return (
+        <div key={idx} className="col-4" >
+          <Recipe recipe={recipe} />
+        </div>
+      )
+    })
+
+    let rows = [];
+    let group = [];
+    for (let i = 0; i < cards.length; i++) {
+      if (i % 3 === 0) {
+        rows.push(<div key={i} className="row">{group}</div>);
+        group = [];
+      }
+      group.push(cards[i]);
+    }
+    rows.push(<div key={cards.length} className="row">{group}</div>);
+
+
+    return <div>{rows}</div>
   }
 }
 

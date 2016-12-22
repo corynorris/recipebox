@@ -1,44 +1,32 @@
 import React from 'react';
+import RecipeStore from '../data/RecipeStore'
 
-const options = [{
-    "id": 1,
-    "name": "cream cheese"
-}, {
-    "id": 2,
-    "name": "sugar"
-}, {
-    "id": 3,
-    "name": "quality sausage meat"
-}, {
-    "id": 4,
-    "name": "fresh parsley"
-}, {
-    "id": 5,
-    "name": "wonton wrappers"
-}, {
-    "id": 6,
-    "name": "ground pork"
-}];
+const store = new RecipeStore();
 
 const styles = {
-    ingredients: {
-      'textAlign': 'left',
-    },
-    title: {
-      padding: 0,
-      margin: 0
-    }
+  ingredients: {
+    'textAlign': 'left',
+  },
+  title: {
+    padding: 0,
+    margin: 0
+  },
+  list: {
+    margin: 0,
+  }
 }
 
-let Ingredients = function(props) {
+
+let Ingredients = function (props) {
+  let ingredientNames = store.getIngredients();
   return (
     <div style={styles.ingredients}>
-    <h3 style={styles.title}>Ingredients</h3>
-      <ul>
-        {props.ingredients.map(ingredient => {
-          const name = options[ingredient.ingredient_id-1].name;
+      <h4 style={styles.title}>Ingredients</h4>
+      <ul style={styles.list}>
+        {props.ingredients.map(id => {
+          const name = ingredientNames[id];
           return (
-            <li key={ingredient.ingredient_id}>
+            <li key={id}>
               {name}
             </li>
           )

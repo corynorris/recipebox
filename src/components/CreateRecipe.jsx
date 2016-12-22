@@ -1,31 +1,34 @@
 import React from 'react';
+import RecipeForm from './RecipeForm';
+import RecipeStore from '../data/RecipeStore';
+import { browserHistory } from 'react-router'
 
-// {
-//     "id": 1,
-//     "name": "Cheese Cake",
-//     "image": "/img/cheesecake.jpg",
-//     "rating": 2.5,
-//     "ingredients": [{
-//         "ingredient_id": 1,
-//         "amount": "2 lb"
-//     }, {
-//         "ingredient_id": 2,
-//         "amount": "1 cup"
-//     }],
-//     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident cum distinctio temporibus quia eaque quas modi aperiam cumque doloremque, iusto error, neque dignissimos nobis? Aspernatur ratione quos rerum cumque qui!"
-// }
+const store = new RecipeStore();
 
 class CreateRecipe extends React.Component {
-    render() {
-        return (
-          <div> Create a recipe! </div>
-        );
-    }
+  constructor(props) {
+    super(props);
+    this.state = { error: false }
+  }
+
+  handleSubmit(recipe) {
+    store.addRecipe(recipe);
+    browserHistory.push('/');
+  }
+
+  render() {
+    return (
+      <div className="row">
+        <div className="col-12">
+          <h2>Add New Recipe</h2>
+          <RecipeForm
+            submitText="Add Recipe"
+            handleSubmit={this.handleSubmit.bind(this)} />
+        </div>
+      </div>
+    );
+  }
 }
-
-CreateRecipe.propTypes = {
-
-};
 
 export default CreateRecipe;
 

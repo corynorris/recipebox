@@ -6,9 +6,10 @@ const store = new RecipeStore();
 
 class RecipeList extends React.Component {
   componentWillMount() {
-    console.log('mounting');
+    let recipes = store.getRecipes();
+    console.log('mounting', recipes);
     this.setState({
-      recipes: store.getRecipes(),
+      recipes: recipes,
     })
   }
   render() {

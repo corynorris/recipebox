@@ -16,8 +16,7 @@ export default class RecipeStore {
   }
 
   getRecipes() {
-    console.log('getting recipes', this.data.recipes);
-
+    this.data = this.store.get() || {};
     return this.data.recipes || [];
   }
 
@@ -37,6 +36,7 @@ export default class RecipeStore {
   }
 
   getIngredients() {
+    this.data = this.store.get() || {};
     return this.data.ingredients || [];
   }
 

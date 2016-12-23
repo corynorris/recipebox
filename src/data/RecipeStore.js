@@ -81,7 +81,7 @@ export default class RecipeStore {
     let ingredientNames = [];
     for (let i = 0; i < ingredientIds.length; i++) {
       ingredientNames.push(
-        this.getIngredientName(i)
+        this.getIngredientName(ingredientIds[i])
       )
     }
     return ingredientNames;

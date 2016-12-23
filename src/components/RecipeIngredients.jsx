@@ -18,7 +18,7 @@ const styles = {
 
 
 let Ingredients = function (props) {
-  let ingredientNames = store.getIngredients();
+  let ingredientNames = store.getIngredientList();
   return (
     <div style={styles.ingredients}>
       <h4 style={styles.title}>Ingredients</h4>

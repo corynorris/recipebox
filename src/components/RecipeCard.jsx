@@ -4,6 +4,10 @@ import Card from './Card';
 import Ingredients from './RecipeIngredients';
 
 class RecipeCard extends React.Component {
+  stopBehviour(e) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
 
   render() {
     return (
@@ -11,7 +15,8 @@ class RecipeCard extends React.Component {
         image={this.props.recipe.image}
         title={this.props.recipe.name}
         >
-        <div className="rating">
+        <div className="rating"
+          onClick={this.stopBehviour.bind(this)}>
           <Rating
             start={0}
             stop={5}
@@ -25,7 +30,7 @@ class RecipeCard extends React.Component {
             />
         </div>
         <Ingredients ingredients={this.props.recipe.ingredients} />
-      </Card>
+      </Card >
     );
   }
 }

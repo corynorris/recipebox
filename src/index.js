@@ -15,7 +15,7 @@ render((
     </Route>
     <Route path="recipe" component={RecipeLayout}>
       <Route path="create" component={CreateRecipe} />
-      <Route path="edit/:id" component={EditRecipe} />
+      <Route path="edit/:recipeId" component={EditRecipe} />
     </Route>
   </Router>
 ), document.getElementById('root'))

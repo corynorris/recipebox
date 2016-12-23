@@ -5,24 +5,30 @@ import { browserHistory } from 'react-router'
 
 const store = new RecipeStore();
 
-class CreateRecipe extends React.Component {
+class EditRecipe extends React.Component {
+
   constructor(props) {
-    super(props);
-    this.state = { error: false }
+    super(props)
+    this.state = {
+      recipe: store.getRecipe(this.props.params.recipeId)
+    }
   }
 
   handleSubmit(recipe) {
-    store.addRecipe(recipe);
+    console.log(recipe);
+    store.updateRecipe(recipe);
     browserHistory.push('/');
   }
 
   render() {
+
     return (
       <div className="row">
         <div className="col-12">
-          <h2>Add New Recipe</h2>
+          <p>Update your recipe</p>
           <RecipeForm
-            submitText="Save Recipe"
+            recipe={this.state.recipe}
+            submitText="Save Changes"
             handleSubmit={this.handleSubmit.bind(this)} />
         </div>
       </div>
@@ -30,5 +36,5 @@ class CreateRecipe extends React.Component {
   }
 }
 
-export default CreateRecipe;
+export default EditRecipe;
 

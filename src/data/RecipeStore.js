@@ -15,7 +15,6 @@ export default class RecipeStore {
     this.store.set(this.data);
   }
 
-
   getRecipes() {
     this.data = this.store.get() || {};
     return this.data.recipes || [];
@@ -26,11 +25,35 @@ export default class RecipeStore {
     if (typeof recipes[i] !== 'object') {
       return null;
     }
-    return recipes[i];
+    return this.mapRecipe(recipes[i]);
+  }
+
+  unMapRecipe(recipe) {
+    return {
+      id: recipe.id,
+      name: recipe.name,
+      image: recipe.image,
+      description: recipe.description,
+      rating: recipe.rating,
+      ingredients: this.addIngredients(recipe.ingredients)
+    }
+  }
+
+  mapRecipe(recipe) {
+    return {
+      id: recipe.id,
+      name: recipe.name,
+      image: recipe.image,
+      description: recipe.description,
+      rating: recipe.rating,
+      ingredients: this.getIngredientNames(recipe.ingredients)
+    }
   }
 
   updateRecipe(recipe) {
-    this.data.recipes[recipe.id] = recipe;
+    const newRecipe = this.unMapRecipe(recipe);
+    this.data.recipes[recipe.id] = newRecipe;
+    console.log(this.data.recipes);
     this.save();
   }
 
@@ -41,23 +64,33 @@ export default class RecipeStore {
     this.save();
   }
 
-  getIngredients() {
+  getIngredientList() {
     this.data = this.store.get() || {};
     return this.data.ingredients || [];
   }
 
-  getIngredient(i) {
-    const ingredients = this.getIngredients();
-    if (typeof ingredients[i] === 'object') {
-      return ingredients[i];
+  getIngredientName(ingredientId) {
+    const ingredients = this.getIngredientList();
+    if (typeof ingredients[ingredientId] === 'string') {
+      return ingredients[ingredientId];
     }
     return null;
   }
 
+  getIngredientNames(ingredientIds) {
+    let ingredientNames = [];
+    for (let i = 0; i < ingredientIds.length; i++) {
+      ingredientNames.push(
+        this.getIngredientName(i)
+      )
+    }
+    return ingredientNames;
+  }
+
   addIngredient(ingredient) {
-    const index = this.getIngredients().indexOf(ingredient)
+    const index = this.getIngredientList().indexOf(ingredient)
     const length = this.data.ingredients.length;
-    if (index > 0) {
+    if (index >= 0) {
       return index;
     }
     this.data.ingredients.push(ingredient);

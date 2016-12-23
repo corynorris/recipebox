@@ -5,10 +5,18 @@ class RecipeForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      error: "",
-      ingredients: props.ingredients || []
+      recipe: this.props.recipe,
+      error: ''
     }
     this.handleTags = this.handleTags.bind(this);
+  }
+
+  validate(value) {
+    if (value && value.length > 0) {
+      this.setState({ error: '' });
+    } else {
+      this.setState({ error: 'All fields are required.' });
+    }
   }
 
   validateFields(recipe) {
@@ -41,14 +49,8 @@ class RecipeForm extends React.Component {
 
   submitRecipe(e) {
     e.preventDefault();
-    const recipe = {
-      name: e.target.elements.name.value,
-      image: e.target.elements.image.value,
-      ingredients: this.state.ingredients,
-      description: e.target.elements.description.value,
-      rating: 5
-    }
-    //recipe.image.match(/\.(jpeg|jpg|gif|png)$/) != null;
+    let recipe = this.state.recipe;
+    recipe.rating = 5;
     if (this.validateFields(recipe)) {
       this.validateImage(recipe.image, 500).then(
         function () {
@@ -63,8 +65,28 @@ class RecipeForm extends React.Component {
     }
   }
 
-  handleTags(e) {
-    this.setState({ ingredients: e });
+  handleImage(image) {
+    let recipe = this.state.recipe;
+    recipe.image = image.target.value;
+    this.setState({ recipe: recipe });
+  }
+
+  handleDescription(description) {
+    let recipe = this.state.recipe;
+    recipe.description = description.target.value;
+    this.setState({ recipe: recipe });
+  }
+
+  handleName(name) {
+    let recipe = this.state.recipe;
+    recipe.name = name.target.value;
+    this.setState({ recipe: recipe });
+  }
+
+  handleTags(tags) {
+    let recipe = this.state.recipe;
+    recipe.ingredients = tags;
+    this.setState({ recipe: recipe });
   }
 
   render() {
@@ -77,23 +99,27 @@ class RecipeForm extends React.Component {
           <div className="form-row">
             <label htmlFor="name">Name</label>
             <input type="text" id="name"
-              defaultValue={this.props.name || ''} />
+              onChange={this.handleName.bind(this)}
+              value={this.state.recipe.name || ''} />
           </div>
           <div className="form-row">
             <label htmlFor="image">Image</label>
             <input type="text" id="image"
-              defaultValue={this.props.image || ''} />
+              onChange={this.handleImage.bind(this)}
+              value={this.state.recipe.image || ''} />
           </div>
           <div className="form-row-tag">
             <label htmlFor="ingredients">Ingredients</label>
             <TagsInput id="ingredients"
               onChange={this.handleTags}
-              value={this.state.ingredients} />
+              addOnBlur={true}
+              value={this.state.recipe.ingredients || []} />
           </div>
           <div className="form-row">
             <label htmlFor="description">Description</label>
             <input type="text" id="description"
-              defaultValue={this.props.description || ''} />
+              onChange={this.handleDescription.bind(this)}
+              value={this.state.recipe.description || ''} />
           </div>
           <button type="submit">{this.props.submitText}</button>
         </form>

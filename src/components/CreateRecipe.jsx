@@ -6,9 +6,12 @@ import { browserHistory } from 'react-router'
 const store = new RecipeStore();
 
 class CreateRecipe extends React.Component {
+
   constructor(props) {
-    super(props);
-    this.state = { error: false }
+    super(props)
+    this.state = {
+      recipe: {}
+    }
   }
 
   handleSubmit(recipe) {
@@ -23,6 +26,7 @@ class CreateRecipe extends React.Component {
           <p>Add a new recipe</p>
           <RecipeForm
             submitText="Add Recipe"
+            recipe={this.state.recipe}
             handleSubmit={this.handleSubmit.bind(this)} />
         </div>
       </div>

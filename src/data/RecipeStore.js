@@ -15,6 +15,7 @@ export default class RecipeStore {
     this.store.set(this.data);
   }
 
+
   getRecipes() {
     this.data = this.store.get() || {};
     return this.data.recipes || [];
@@ -22,16 +23,21 @@ export default class RecipeStore {
 
   getRecipe(i) {
     const recipes = this.getRecipes();
-    if (typeof recipes[i] === 'object') {
-      return recipes[i];
+    if (typeof recipes[i] !== 'object') {
+      return null;
     }
-    return null;
+    return recipes[i];
+  }
+
+  updateRecipe(recipe) {
+    this.data.recipes[recipe.id] = recipe;
+    this.save();
   }
 
   addRecipe(recipe) {
+    recipe.id = this.data.recipes.length;
     recipe.ingredients = this.addIngredients(recipe.ingredients);
     this.data.recipes.push(recipe);
-    console.log('added recipe', this.data.recipes)
     this.save();
   }
 

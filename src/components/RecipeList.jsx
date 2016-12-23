@@ -12,9 +12,18 @@ class RecipeList extends React.Component {
       recipes: recipes,
     })
   }
+
+  updateRating(rating) {
+    this.rating = rating;
+    store.updateRecipe(this);
+  }
+
   render() {
     let cards = this.state.recipes.map((recipe, idx) =>
-      <RecipeCard key={idx} recipe={recipe} />
+      <RecipeCard
+        key={idx}
+        recipe={recipe}
+        updateRating={this.updateRating.bind(recipe)} />
     )
 
     return <GridLayout items={cards} columns={3} />

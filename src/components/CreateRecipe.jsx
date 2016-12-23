@@ -20,7 +20,7 @@ class CreateRecipe extends React.Component {
     return (
       <div className="row">
         <div className="col-12">
-          <h2>Add New Recipe</h2>
+          <p>Add a new recipe</p>
           <RecipeForm
             submitText="Add Recipe"
             handleSubmit={this.handleSubmit.bind(this)} />

@@ -3,37 +3,29 @@
 body {
   margin: 0;
 }
-
-/* Style for the app header */
-.App-header {
-  position: relative;
-  margin: 0;
-  height: 70px;
-  line-height: 70px;
-  background-color: #222;
+.app-header {
+  width: 100%;
 }
-.App-header h2 {
-  color: white;
-  font-size: 32px;
-  display: block;
-  margin: auto;
+.app-header .title {
+  display:inline-block;  
 }
-.App-header button {
-  cursor:pointer;
-  position: absolute;
-  right: 12px;
-  top: 12px;
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  margin: 0;
-  padding: 14px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+.app-header .actions {
+  float:right;
 }
-
+*:focus {
+    outline:none;
+}
+button {
+  padding: 10px 14px;
+  background: white;
+  border-radius: 30px;
+  border: 2px solid #28aadc;
+  color: #28aadc;
+}
+button:hover {
+  border-color: #346392;
+  color: #346392;
+}
 
 /* Custom CSS for the Rating Widget */
 .rating {
@@ -58,6 +50,7 @@ body {
   text-align: left;
 }
 .form-row input[type=text] {
+   color:#777;
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0 20px 0;
@@ -66,7 +59,7 @@ body {
 }
 .form-row input[type=text]:focus {
   outline:none;
-  border:1px solid #4CAF50;
+  border:1px solid #346392;
 }
 
 /* Custom CSS for the react-taginput widget */
@@ -80,17 +73,21 @@ body {
     border-radius: 5px;
     border: 1px solid #ccc;
 }
+.react-tagsinput--focused {
+  border-color: #346392;
+}
 .react-tagsinput span {
     float:left;    
 }
+
 .react-tagsinput-tag {
-  background-color: #cde69c;
+  background-color: white;
   border-radius: 2px;
-  border: 1px solid #4CAF50;
-  color: #638421;
+  border: 1px solid #28aadc;
+  color: #28aadc;
   display: inline-block;
   font-size: 13px;
-  font-weight: 400;
+  font-weight: 700;
   margin-bottom: 5px;
   margin-right: 5px;
   padding: 5px;
@@ -101,6 +98,7 @@ body {
 }
 .react-tagsinput-tag a::before {
   content: " x";
+  color: #28aadc;
 }
 .react-tagsinput-input {
   background: transparent;

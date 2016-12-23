@@ -1,39 +1,23 @@
 import React from 'react';
-import Recipe from './Recipe'
+import RecipeCard from './RecipeCard'
 import RecipeStore from '../data/RecipeStore.js';
+import GridLayout from './GridLayout'
 
 const store = new RecipeStore();
 
 class RecipeList extends React.Component {
   componentWillMount() {
     let recipes = store.getRecipes();
-    console.log('mounting', recipes);
     this.setState({
       recipes: recipes,
     })
   }
   render() {
-    let cards = this.state.recipes.map((recipe, idx) => {
-      return (
-        <div key={idx} className="col-4" >
-          <Recipe recipe={recipe} />
-        </div>
-      )
-    })
+    let cards = this.state.recipes.map((recipe, idx) =>
+      <RecipeCard key={idx} recipe={recipe} />
+    )
 
-    let rows = [];
-    let group = [];
-    for (let i = 0; i < cards.length; i++) {
-      if (i % 3 === 0) {
-        rows.push(<div key={i} className="row">{group}</div>);
-        group = [];
-      }
-      group.push(cards[i]);
-    }
-    rows.push(<div key={cards.length} className="row">{group}</div>);
-
-
-    return <div>{rows}</div>
+    return <GridLayout items={cards} columns={3} />
   }
 }
 

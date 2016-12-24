@@ -20,12 +20,14 @@ export default class RecipeStore {
     return this.data.recipes || [];
   }
 
-  getRecipe(i) {
+  getRecipe(id) {
     const recipes = this.getRecipes();
-    if (typeof recipes[i] !== 'object') {
-      return null;
+    for (let i = 0; i < recipes.length; i++) {
+      if (recipes[i].id === Number(id)) {
+        return this.mapRecipe(recipes[i]);
+      }
     }
-    return this.mapRecipe(recipes[i]);
+    return null;
   }
 
   unMapRecipe(recipe) {
@@ -48,6 +50,11 @@ export default class RecipeStore {
       rating: recipe.rating,
       ingredients: this.getIngredientNames(recipe.ingredients)
     }
+  }
+
+  delete(recipe) {
+    this.data.recipes.splice(recipe.id, 1);
+    this.save();
   }
 
   updateRating(id, rating) {

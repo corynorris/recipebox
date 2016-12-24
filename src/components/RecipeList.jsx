@@ -15,6 +15,10 @@ class RecipeList extends React.Component {
     })
   }
 
+  delete(recipe) {
+    store.delete(recipe);
+  }
+
   updateRating(rating) {
     store.updateRating(this.id, rating);
   }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router'
+import { browserHistory } from 'react-router'
 
 class RecipeLayout extends Component {
   render() {
@@ -8,9 +8,9 @@ class RecipeLayout extends Component {
         <div className="container">
           <div className="app-header">
             <h2 className="title">Recipe Box</h2>
-            <Link className="actions" to='/'>
+            <a className="actions" onClick={browserHistory.goBack}>
               <h2><i className="fa fa-arrow-left fa-lg" aria-hidden="true"></i></h2>
-            </Link>
+            </a>
           </div>
           <div className="app-body">
             {this.props.children}

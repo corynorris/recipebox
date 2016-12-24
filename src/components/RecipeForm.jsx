@@ -29,7 +29,7 @@ class RecipeForm extends React.Component {
 
   validateImage(url, timeout) {
     return new Promise(function (resolve, reject) {
-      var timeout = timeout || 5000;
+      let timeout = 5000;
       var timer, img = new Image();
       img.onerror = img.onabort = function () {
         clearTimeout(timer);

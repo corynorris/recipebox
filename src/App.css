@@ -3,7 +3,13 @@
 body {
   margin: 0;
 }
+
+h2,h3,h4 {
+  margin: 0;
+}
+
 .app-header {
+  margin: 20px 0px;
   width: 100%;
 }
 .app-header .title {
@@ -15,6 +21,7 @@ body {
 *:focus {
     outline:none;
 }
+
 button {
   padding: 10px 14px;
   background: white;

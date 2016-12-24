@@ -50,6 +50,11 @@ export default class RecipeStore {
     }
   }
 
+  updateRating(id, rating) {
+    this.data.recipes[id].rating = rating;
+    this.save();
+  }
+
   updateRecipe(recipe) {
     const newRecipe = this.unMapRecipe(recipe);
     this.data.recipes[recipe.id] = newRecipe;

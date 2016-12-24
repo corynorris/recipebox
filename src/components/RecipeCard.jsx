@@ -4,7 +4,7 @@ import Card from './Card';
 import Ingredients from './RecipeIngredients';
 
 class RecipeCard extends React.Component {
-  stopBehviour(e) {
+  stopBehaviour(e) {
     e.preventDefault();
     e.stopPropagation();
   }
@@ -16,7 +16,7 @@ class RecipeCard extends React.Component {
         title={this.props.recipe.name}
         >
         <div className="rating"
-          onClick={this.stopBehviour.bind(this)}>
+          onClick={this.stopBehaviour.bind(this)}>
           <Rating
             start={0}
             stop={5}

@@ -16,8 +16,7 @@ class RecipeList extends React.Component {
   }
 
   updateRating(rating) {
-    this.rating = rating;
-    store.updateRecipe(this);
+    store.updateRating(this.id, rating);
   }
 
   render() {
@@ -37,8 +36,9 @@ class RecipeList extends React.Component {
       return false;
     });
 
+    console.log(filteredRecipes);
     let cards = filteredRecipes.map((recipe, idx) =>
-      <Link to={"/recipe/edit/" + recipe.id} >
+      <Link to={"/recipe/view/" + recipe.id} >
         <RecipeCard
           key={idx}
           recipe={recipe}

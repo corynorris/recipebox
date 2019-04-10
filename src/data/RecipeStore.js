@@ -1,5 +1,5 @@
-import Store from './Store';
-const defaultData = require('./recipes.json');
+import Store from "./Store";
+const defaultData = require("./recipes.json");
 
 const APP_STORAGE_KEY = "recipebox";
 
@@ -38,7 +38,7 @@ export default class RecipeStore {
       description: recipe.description,
       rating: recipe.rating,
       ingredients: this.addIngredients(recipe.ingredients)
-    }
+    };
   }
 
   mapRecipe(recipe) {
@@ -49,7 +49,20 @@ export default class RecipeStore {
       description: recipe.description,
       rating: recipe.rating,
       ingredients: this.getIngredientNames(recipe.ingredients)
+    };
+  }
+
+  getIndexById(id) {
+    for (let i = 0; i < this.data.recipes.length; i++) {
+      if (this.data.recipes[i].id === Number(id)) {
+        return i;
+      }
     }
+  }
+
+  generateSafeId() {
+    const ids = this.data.recipes.map(recipe => recipe.id);
+    return Math.max(...ids) + 1;
   }
 
   delete(recipe) {
@@ -58,19 +71,21 @@ export default class RecipeStore {
   }
 
   updateRating(id, rating) {
-    this.data.recipes[id].rating = rating;
+    const idx = this.getIndexById(id);
+    this.data.recipes[idx].rating = rating;
     this.save();
   }
 
   updateRecipe(recipe) {
     const newRecipe = this.unMapRecipe(recipe);
-    this.data.recipes[recipe.id] = newRecipe;
+    const idx = this.getIndexById(newRecipe.id);
+    this.data.recipes[idx] = newRecipe;
     console.log(this.data.recipes);
     this.save();
   }
 
   addRecipe(recipe) {
-    recipe.id = this.data.recipes.length;
+    recipe.id = this.generateSafeId();
     recipe.ingredients = this.addIngredients(recipe.ingredients);
     this.data.recipes.push(recipe);
     this.save();
@@ -83,7 +98,7 @@ export default class RecipeStore {
 
   getIngredientName(ingredientId) {
     const ingredients = this.getIngredientList();
-    if (typeof ingredients[ingredientId] === 'string') {
+    if (typeof ingredients[ingredientId] === "string") {
       return ingredients[ingredientId];
     }
     return null;
@@ -92,15 +107,13 @@ export default class RecipeStore {
   getIngredientNames(ingredientIds) {
     let ingredientNames = [];
     for (let i = 0; i < ingredientIds.length; i++) {
-      ingredientNames.push(
-        this.getIngredientName(ingredientIds[i])
-      )
+      ingredientNames.push(this.getIngredientName(ingredientIds[i]));
     }
     return ingredientNames;
   }
 
   addIngredient(ingredient) {
-    const index = this.getIngredientList().indexOf(ingredient)
+    const index = this.getIngredientList().indexOf(ingredient);
     const length = this.data.ingredients.length;
     if (index >= 0) {
       return index;
@@ -113,7 +126,7 @@ export default class RecipeStore {
   addIngredients(ingredients) {
     let ingredientIds = new Set();
     for (let i = 0; i < ingredients.length; i++) {
-      let id = this.addIngredient(ingredients[i])
+      let id = this.addIngredient(ingredients[i]);
       ingredientIds.add(id);
     }
     return Array.from(ingredientIds);

@@ -1,8 +1,8 @@
-import React from 'react';
-import RecipeCard from './RecipeCard'
-import RecipeStore from '../data/RecipeStore.js';
-import GridLayout from './GridLayout'
-import { Link } from 'react-router'
+import React from "react";
+import RecipeCard from "./RecipeCard";
+import RecipeStore from "../data/RecipeStore.js";
+import GridLayout from "./GridLayout";
+import { Link } from "react-router";
 
 const store = new RecipeStore();
 
@@ -11,8 +11,8 @@ class RecipeList extends React.Component {
     let recipes = store.getRecipes();
     this.setState({
       recipes: recipes,
-      search: ''
-    })
+      search: ""
+    });
   }
 
   delete(recipe) {
@@ -24,16 +24,13 @@ class RecipeList extends React.Component {
   }
 
   render() {
-
-    let filteredRecipes = this.state.recipes.filter((recipe) => {
+    let filteredRecipes = this.state.recipes.filter(recipe => {
       if (this.state.search.length === 0) {
         return true;
       }
       let ingredients = store.getIngredientNames(recipe.ingredients);
       for (var i = 0; i < ingredients.length; i++) {
-        if (ingredients[i].indexOf(
-          this.state.search
-        ) >= 0) {
+        if (ingredients[i].indexOf(this.state.search) >= 0) {
           return true;
         }
       }
@@ -41,29 +38,31 @@ class RecipeList extends React.Component {
     });
 
     console.log(filteredRecipes);
-    let cards = filteredRecipes.map((recipe, idx) =>
-      <Link to={"/recipe/view/" + recipe.id} >
+    let cards = filteredRecipes.map((recipe, idx) => (
+      <Link to={"/recipe/view/" + recipe.id}>
         <RecipeCard
           key={idx}
           recipe={recipe}
-          updateRating={this.updateRating.bind(recipe)} />
+          updateRating={this.updateRating.bind(recipe)}
+        />
       </Link>
-    )
+    ));
 
     return (
       <div>
         <div className="searchBar">
-          <span className="fa fa-search"></span>
-          <input className="search"
+          <span className="fa fa-search" />
+          <input
+            className="search"
             value={this.state.search}
-            onChange={(e) => this.setState({ search: e.target.value })}
-            placeholder="Search Ingredients" />
+            onChange={e => this.setState({ search: e.target.value })}
+            placeholder="Search Ingredients"
+          />
         </div>
         <GridLayout items={cards} columns={3} />
       </div>
-    )
+    );
   }
 }
 
 export default RecipeList;
-

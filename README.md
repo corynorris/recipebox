@@ -4,7 +4,10 @@
 A simple crud-recipe box using local storage and react
 
 ## Demo
-https://corynorris.github.io/recipebox/
+Demo Account: test@123.com  
+Demo Password: password
+
+https://desolate-scrubland-45115.herokuapp.com/
 
 ## Other Notes
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+This project was bootstrapped with [Phoenix](https://www.phoenixframework.org/).

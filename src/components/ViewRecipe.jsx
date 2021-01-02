@@ -14,7 +14,7 @@ class ViewRecipe extends React.Component {
 
   delete() {
     store.delete(this.state.recipe);
-    browserHistory.push('/');
+    browserHistory.push(process.env.PUBLIC_URL);
   }
 
   render() {

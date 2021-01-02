@@ -9,9 +9,10 @@ import ListLayout from "./components/ListLayout";
 import RecipeLayout from "./components/RecipeLayout";
 import "./App.css";
 import "./SimpleGrid.css";
+
 render(
   <Router history={browserHistory}>
-    <Route path="/" component={ListLayout}>
+    <Route path="/recipebox" component={ListLayout}>
       <IndexRoute component={RecipeList} />
     </Route>
     <Route path="recipe" component={RecipeLayout}>

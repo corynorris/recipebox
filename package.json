@@ -1,6 +1,6 @@
 {
-  "homepage": "https://corynorris.github.io/recipebox",
   "name": "recipe-box",
+  "homepage": "https://corynorris.github.io/recipebox",
   "version": "0.1.0",
   "dependencies": {
     "normalize.css": "^8.0.1",

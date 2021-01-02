@@ -16,7 +16,7 @@ class EditRecipe extends React.Component {
 
   handleSubmit(recipe) {
     store.updateRecipe(recipe);
-    browserHistory.push('/');
+    browserHistory.push(process.env.PUBLIC_URL);
   }
 
   render() {

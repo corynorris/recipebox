@@ -16,7 +16,7 @@ class CreateRecipe extends React.Component {
 
   handleSubmit(recipe) {
     store.addRecipe(recipe);
-    browserHistory.push('/');
+    browserHistory.push(process.env.PUBLIC_URL);
   }
 
   render() {

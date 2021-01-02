@@ -34,7 +34,7 @@ class Card extends React.Component {
       <article style={styles.card}>
         <header style={styles.header}>
           <img
-            src={this.props.image}
+            src={process.env.PUBLIC_URL + this.props.image}
             style={styles.img}
             alt={this.props.title}
           />

@@ -8,7 +8,7 @@ import CreateRecipe from "./components/CreateRecipe";
 import ListLayout from "./components/ListLayout";
 import RecipeLayout from "./components/RecipeLayout";
 import "./App.css";
-
+import "./SimpleGrid.css";
 render(
   <Router history={browserHistory}>
     <Route path="/" component={ListLayout}>

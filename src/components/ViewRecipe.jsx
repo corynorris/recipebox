@@ -26,7 +26,7 @@ class ViewRecipe extends React.Component {
             <h2 className="title" style={{ background: "rgb(52,99,146)", color: "white", width: "100%", textAlign: "center", "padding": "8px" }}>
               {this.state.recipe.name}
             </h2>
-            <img src={this.state.recipe.image} role="presentation" style={{ width: "100%", border: "2px solid rgb(52,99,146)" }} />
+            <img src={process.env.PUBLIC_URL + this.state.recipe.image} role="presentation" style={{ width: "100%", border: "2px solid rgb(52,99,146)" }} />
           </div>
           <div className="col-5">
 

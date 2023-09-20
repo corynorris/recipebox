@@ -1,8 +1,8 @@
 import React from "react";
-import RecipeCard from "./RecipeCard";
+import { Link } from "react-router-dom";
 import RecipeStore from "../data/RecipeStore.js";
 import GridLayout from "./GridLayout";
-import { Link } from "react-router";
+import RecipeCard from "./RecipeCard";
 
 const store = new RecipeStore();
 
@@ -37,9 +37,8 @@ class RecipeList extends React.Component {
       return false;
     });
 
-    console.log(filteredRecipes);
     let cards = filteredRecipes.map((recipe, idx) => (
-      <Link to={"/recipe/view/" + recipe.id}>
+      <Link to={"/recipebox/recipe/view/" + recipe.id}>
         <RecipeCard
           key={idx}
           recipe={recipe}

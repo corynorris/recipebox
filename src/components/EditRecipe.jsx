@@ -1,38 +1,32 @@
 import React from 'react';
-import RecipeForm from './RecipeForm';
+import { useNavigate, useParams } from "react-router-dom";
 import RecipeStore from '../data/RecipeStore';
-import { browserHistory } from 'react-router'
+import RecipeForm from './RecipeForm';
 
 const store = new RecipeStore();
 
-class EditRecipe extends React.Component {
-
-  constructor(props) {
-    super(props)
-    this.state = {
-      recipe: store.getRecipe(this.props.params.recipeId)
-    }
-  }
-
-  handleSubmit(recipe) {
+const EditRecipe = () => {
+  const navigate = useNavigate();
+  const { recipeId } = useParams();
+  let recipe = store.getRecipe(recipeId)
+  
+  const updateRecipe = () => {
     store.updateRecipe(recipe);
-    browserHistory.push(process.env.PUBLIC_URL);
-  }
+    navigate(import.meta.env.BASE_URL);
+  };
 
-  render() {
-
-    return (
-      <div className="row">
-        <div className="col-12">
-          <p>Update your recipe</p>
-          <RecipeForm
-            recipe={this.state.recipe}
-            submitText="Save Changes"
-            handleSubmit={this.handleSubmit.bind(this)} />
-        </div>
+  return (
+    <div className="row">
+      <div className="col-12">
+        <p>Update your recipe</p>
+        <RecipeForm
+          recipe={recipe}
+          submitText="Save Changes"
+          handleSubmit={updateRecipe} />
       </div>
-    );
-  }
+    </div>
+  );
+  
 }
 
 export default EditRecipe;

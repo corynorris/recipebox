@@ -1,8 +1,8 @@
+import PropTypes from "prop-types";
 import React from "react";
 import Rating from "react-rating";
 import Card from "./Card";
 import Ingredients from "./RecipeIngredients";
-import PropTypes from "prop-types";
 
 class RecipeCard extends React.Component {
   stopBehaviour(e) {
@@ -11,7 +11,6 @@ class RecipeCard extends React.Component {
   }
 
   render() {
-    console.log(this.props.recipe);
     return (
       <Card image={this.props.recipe.image} title={this.props.recipe.name}>
         <div className="rating" onClick={this.stopBehaviour.bind(this)}>

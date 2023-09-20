@@ -1,7 +1,6 @@
 import React from 'react';
-import RecipeForm from './RecipeForm';
 import RecipeStore from '../data/RecipeStore';
-import { browserHistory } from 'react-router'
+import RecipeForm from './RecipeForm';
 
 const store = new RecipeStore();
 
@@ -16,7 +15,7 @@ class CreateRecipe extends React.Component {
 
   handleSubmit(recipe) {
     store.addRecipe(recipe);
-    browserHistory.push(process.env.PUBLIC_URL);
+    BrowserRouter.push(import.meta.env.BASE_URL);
   }
 
   render() {

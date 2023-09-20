@@ -1,5 +1,5 @@
 import Store from "./Store";
-const defaultData = require("./recipes.json");
+import defaultData from "./recipes.json";
 
 const APP_STORAGE_KEY = "recipebox";
 

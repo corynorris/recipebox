@@ -1,5 +1,5 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 
 const styles = {
   card: {
@@ -34,7 +34,7 @@ class Card extends React.Component {
       <article style={styles.card}>
         <header style={styles.header}>
           <img
-            src={process.env.PUBLIC_URL + this.props.image}
+            src={import.meta.env.BASE_URL + this.props.image}
             style={styles.img}
             alt={this.props.title}
           />

@@ -25,7 +25,11 @@ const RecipeList = () => {
   });
 
   const cards = filteredRecipes.map((recipe) => (
-    <Link key={recipe.id} to={`/recipebox/recipe/view/${recipe.id}`}>
+    <Link
+      key={recipe.id}
+      to={`/recipebox/recipe/view/${recipe.id}`}
+      style={{ textDecoration: "none", color: "inherit" }}
+    >
       <RecipeCard
         recipe={recipe}
         updateRating={(rating: number) => handleUpdateRating(recipe.id, rating)}

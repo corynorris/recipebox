@@ -1,10 +1,14 @@
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
 }
 
-h2,h3,h4 {
+h2,
+h3,
+h4 {
   margin: 0;
 }
 
@@ -13,13 +17,13 @@ h2,h3,h4 {
   width: 100%;
 }
 .app-header .title {
-  display:inline-block;  
+  display: inline-block;
 }
 .app-header .actions {
-  float:right;
+  float: right;
 }
 *:focus {
-    outline:none;
+  outline: none;
 }
 
 button {
@@ -58,7 +62,7 @@ button:hover {
 .rating {
   margin: 5px;
   padding: 10px;
-  background: rgba(255,255,255, 0.9);
+  background: rgba(255, 255, 255, 0.9);
   position: absolute;
   top: 0;
   right: 0;
@@ -72,39 +76,39 @@ button:hover {
 
 /* General CSS for Forms */
 .form-row label {
-  display:block;
+  display: block;
   width: 100%;
   text-align: left;
 }
-.form-row input[type=text] {
-   color:#777;
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0 20px 0;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+.form-row input[type="text"] {
+  color: #777;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0 20px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
-.form-row input[type=text]:focus {
-  outline:none;
-  border:1px solid #346392;
+.form-row input[type="text"]:focus {
+  outline: none;
+  border: 1px solid #346392;
 }
 
 /* Custom CSS for the react-taginput widget */
 .react-tagsinput {
-    width: 100%;
-    background-color: #fff;
-    overflow: hidden;
-    padding-left: 5px;
-    padding-top: 5px;
-    margin: 8px 0 20px 0;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+  width: 100%;
+  background-color: #fff;
+  overflow: hidden;
+  padding-left: 5px;
+  padding-top: 5px;
+  margin: 8px 0 20px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 .react-tagsinput--focused {
   border-color: #346392;
 }
 .react-tagsinput span {
-    float:left;    
+  float: left;
 }
 
 .react-tagsinput-tag {

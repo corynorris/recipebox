@@ -1,10 +1,18 @@
 # RecipeBox
 
 ## Overview
-A simple crud-recipe box using local storage and react
+
+A simple CRUD recipe box using localStorage and React (Vite).
 
 ## Demo
+
 https://corynorris.github.io/recipebox/
 
-## Other Notes
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+## Getting Started
+
+```bash
+npm install
+npm start       # Runs Vite dev server
+npm run build   # Production build
+npm run serve   # Preview production build
+```

@@ -28,11 +28,14 @@ const ViewRecipe = () => {
           <h2
             className="title"
             style={{
-              background: "rgb(52,99,146)",
+              background: "#C73E1D",
               color: "white",
               width: "100%",
               textAlign: "center",
-              padding: "8px",
+              padding: "10px",
+              fontFamily: "Lora, Georgia, serif",
+              borderTopLeftRadius: "8px",
+              borderTopRightRadius: "8px",
             }}
           >
             {recipe.name}
@@ -42,7 +45,9 @@ const ViewRecipe = () => {
             role="presentation"
             style={{
               width: "100%",
-              border: "2px solid rgb(52,99,146)",
+              borderLeft: "2px solid #C73E1D",
+              borderRight: "2px solid #C73E1D",
+              display: "block",
             }}
           />
         </div>
@@ -62,7 +67,7 @@ const ViewRecipe = () => {
             <Link
               className="actions"
               to={`/recipebox/recipe/edit/${recipe.id}`}
-              style={{ display: "inline-block" }}
+              style={{ display: "inline-block", color: "#5B7B45" }}
             >
               <i className="fa fa-pencil fa-2x" aria-hidden="true"></i>
             </Link>
@@ -70,11 +75,12 @@ const ViewRecipe = () => {
               onClick={deleteRecipe}
               style={{
                 display: "inline-block",
-                marginLeft: "5px",
+                marginLeft: "8px",
                 border: "none",
                 background: "none",
                 cursor: "pointer",
                 padding: 0,
+                color: "#A33015",
               }}
             >
               <i className="fa fa-times fa-2x" aria-hidden="true"></i>

@@ -145,7 +145,7 @@ class RecipeForm extends React.Component {
 
 RecipeForm.propTypes = {
   submitText: PropTypes.string,
-  handleSumbit: PropTypes.func
+  handleSubmit: PropTypes.func
 };
 
 export default RecipeForm;

@@ -1,7 +1,5 @@
 import React from 'react';
-import RecipeStore from '../data/RecipeStore'
-
-const store = new RecipeStore();
+import { recipeStore } from '../data/RecipeStore';
 
 const styles = {
   ingredients: {
@@ -14,11 +12,10 @@ const styles = {
   list: {
     margin: 0,
   }
-}
+};
 
-
-let Ingredients = function (props) {
-  let ingredientNames = store.getIngredientList();
+const Ingredients = (props) => {
+  const ingredientNames = recipeStore.getIngredientList();
   return (
     <div style={styles.ingredients}>
       <h4 style={styles.title}>Ingredients</h4>
@@ -29,11 +26,11 @@ let Ingredients = function (props) {
             <li key={id}>
               {name}
             </li>
-          )
+          );
         })}
       </ul>
     </div>
   );
-}
+};
 
 export default Ingredients;

@@ -28,23 +28,21 @@ const styles = {
   }
 };
 
-class Card extends React.Component {
-  render() {
-    return (
-      <article style={styles.card}>
-        <header style={styles.header}>
-          <img
-            src={import.meta.env.BASE_URL + this.props.image}
-            style={styles.img}
-            alt={this.props.title}
-          />
-          <h3 style={styles.title}>{this.props.title}</h3>
-        </header>
-        <section style={styles.details}>{this.props.children}</section>
-      </article>
-    );
-  }
-}
+const Card = (props) => {
+  return (
+    <article style={styles.card}>
+      <header style={styles.header}>
+        <img
+          src={import.meta.env.BASE_URL + props.image}
+          style={styles.img}
+          alt={props.title}
+        />
+        <h3 style={styles.title}>{props.title}</h3>
+      </header>
+      <section style={styles.details}>{props.children}</section>
+    </article>
+  );
+};
 
 Card.propTypes = {
   image: PropTypes.string,

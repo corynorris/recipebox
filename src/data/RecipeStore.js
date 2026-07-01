@@ -3,7 +3,7 @@ import defaultData from "./recipes.json";
 
 const APP_STORAGE_KEY = "recipebox";
 
-export default class RecipeStore {
+class RecipeStore {
   constructor() {
     this.store = new Store(APP_STORAGE_KEY, defaultData);
     this.data = this.store.get() || {};
@@ -58,16 +58,23 @@ export default class RecipeStore {
         return i;
       }
     }
+    return -1;
   }
 
   generateSafeId() {
     const ids = this.data.recipes.map(recipe => recipe.id);
+    if (ids.length === 0) {
+      return 0;
+    }
     return Math.max(...ids) + 1;
   }
 
   delete(recipe) {
-    this.data.recipes.splice(recipe.id, 1);
-    this.save();
+    const idx = this.getIndexById(recipe.id);
+    if (idx !== -1) {
+      this.data.recipes.splice(idx, 1);
+      this.save();
+    }
   }
 
   updateRating(id, rating) {
@@ -132,3 +139,6 @@ export default class RecipeStore {
     return Array.from(ingredientIds);
   }
 }
+
+export const recipeStore = new RecipeStore();
+export default RecipeStore;

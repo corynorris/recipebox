@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 
 const RecipeLayout = () => {
   const navigate = useNavigate();
@@ -9,9 +9,9 @@ const RecipeLayout = () => {
         <div className="container">
           <div className="app-header">
             <h2 className="title">Recipe Box</h2>
-            <Link className="actions" onClick={() => navigate(-1)}>
+            <span className="actions" onClick={() => navigate(-1)} style={{ cursor: "pointer" }}>
               <h2><i className="fa fa-arrow-left fa-lg" aria-hidden="true"></i></h2>
-            </Link>
+            </span>
           </div>
           <div className="app-body">
             <Outlet />

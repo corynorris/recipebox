@@ -1,17 +1,25 @@
 import React from 'react';
 import { useNavigate, useParams } from "react-router-dom";
-import RecipeStore from '../data/RecipeStore';
+import { recipeStore } from '../data/RecipeStore';
 import RecipeForm from './RecipeForm';
-
-const store = new RecipeStore();
 
 const EditRecipe = () => {
   const navigate = useNavigate();
   const { recipeId } = useParams();
-  let recipe = store.getRecipe(recipeId)
+  const recipe = recipeStore.getRecipe(recipeId);
+
+  if (!recipe) {
+    return (
+      <div className="row">
+        <div className="col-12">
+          <p>Recipe not found.</p>
+        </div>
+      </div>
+    );
+  }
   
   const updateRecipe = () => {
-    store.updateRecipe(recipe);
+    recipeStore.updateRecipe(recipe);
     navigate(import.meta.env.BASE_URL);
   };
 
@@ -26,8 +34,6 @@ const EditRecipe = () => {
       </div>
     </div>
   );
-  
-}
+};
 
 export default EditRecipe;
-

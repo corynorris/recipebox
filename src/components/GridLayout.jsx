@@ -1,43 +1,41 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-class GridLayout extends React.Component {
-  static propTypes = {
-    columns: PropTypes.number,
-    items: PropTypes.arrayOf(PropTypes.object)
-  };
+const GridLayout = ({ items, columns }) => {
+  const row = (item, idx) => (
+    <div key={idx} className="row">
+      {item}
+    </div>
+  );
 
-  row(item, idx) {
-    return (
-      <div key={idx} className="row">
-        {item}
-      </div>
-    );
-  }
-
-  col(item, idx) {
-    const sizeName = "col-" + 12 / this.props.columns;
+  const col = (item, idx) => {
+    const sizeName = "col-" + 12 / columns;
     return (
       <div key={idx} className={sizeName}>
         {item}
       </div>
     );
+  };
+
+  const rows = [];
+  let group = [];
+  items.forEach((element, idx) => {
+    if (idx > 0 && idx % columns === 0) {
+      rows.push(row(group, idx));
+      group = [];
+    }
+    group.push(col(element, idx));
+  });
+  if (group.length > 0) {
+    rows.push(row(group, items.length));
   }
 
-  render() {
-    let rows = [];
-    let group = [];
-    this.props.items.forEach((element, idx) => {
-      if (idx % this.props.columns === 0) {
-        rows.push(this.row(group, idx));
-        group = [];
-      }
-      group.push(this.col(element, idx));
-    });
-    rows.push(this.row(group, this.props.items.length));
+  return <div>{rows}</div>;
+};
 
-    return <div>{rows}</div>;
-  }
-}
+GridLayout.propTypes = {
+  columns: PropTypes.number,
+  items: PropTypes.arrayOf(PropTypes.object)
+};
 
 export default GridLayout;

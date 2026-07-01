@@ -1,9 +1,11 @@
 # RecipeBox
 
 ## Overview
+
 A simple CRUD recipe box using localStorage and React (Vite).
 
 ## Demo
+
 https://corynorris.github.io/recipebox/
 
 ## Getting Started

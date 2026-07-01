@@ -1,5 +1,8 @@
-import React from 'react';
-import { Route, createBrowserRouter, createRoutesFromElements } from "react-router-dom";
+import {
+  Route,
+  createBrowserRouter,
+  createRoutesFromElements,
+} from "react-router-dom";
 import CreateRecipe from "./components/CreateRecipe";
 import EditRecipe from "./components/EditRecipe";
 import ErrorPage from "./components/ErrorPage";
@@ -10,10 +13,10 @@ import ViewRecipe from "./components/ViewRecipe";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/"  errorElement={<ErrorPage />}>
+    <Route path="/" errorElement={<ErrorPage />}>
       <Route path="/recipebox" errorElement={<ErrorPage />}>
-        <Route  element={<ListLayout />} >
-          <Route index  element={<RecipeList />} />
+        <Route element={<ListLayout />}>
+          <Route index element={<RecipeList />} />
         </Route>
         <Route path="recipe" element={<RecipeLayout />}>
           <Route path="view/:recipeId" element={<ViewRecipe />} />
@@ -21,6 +24,6 @@ export const router = createBrowserRouter(
           <Route path="edit/:recipeId" element={<EditRecipe />} />
         </Route>
       </Route>
-    </Route>
-  )
+    </Route>,
+  ),
 );

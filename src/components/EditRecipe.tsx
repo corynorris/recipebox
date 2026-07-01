@@ -1,12 +1,12 @@
-import React from 'react';
 import { useNavigate, useParams } from "react-router-dom";
-import { recipeStore } from '../data/RecipeStore';
-import RecipeForm from './RecipeForm';
+import type { MappedRecipe } from "../types";
+import { recipeStore } from "../data/RecipeStore";
+import RecipeForm from "./RecipeForm";
 
 const EditRecipe = () => {
   const navigate = useNavigate();
-  const { recipeId } = useParams();
-  const recipe = recipeStore.getRecipe(recipeId);
+  const { recipeId } = useParams<{ recipeId: string }>();
+  const recipe = recipeStore.getRecipe(recipeId!);
 
   if (!recipe) {
     return (
@@ -17,9 +17,9 @@ const EditRecipe = () => {
       </div>
     );
   }
-  
-  const updateRecipe = () => {
-    recipeStore.updateRecipe(recipe);
+
+  const handleUpdate = (updatedRecipe: MappedRecipe) => {
+    recipeStore.updateRecipe(updatedRecipe);
     navigate(import.meta.env.BASE_URL);
   };
 
@@ -30,7 +30,8 @@ const EditRecipe = () => {
         <RecipeForm
           recipe={recipe}
           submitText="Save Changes"
-          handleSubmit={updateRecipe} />
+          handleSubmit={handleUpdate}
+        />
       </div>
     </div>
   );

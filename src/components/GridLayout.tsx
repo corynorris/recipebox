@@ -1,15 +1,19 @@
-import React from "react";
-import PropTypes from "prop-types";
+import type { ReactNode } from "react";
 
-const GridLayout = ({ items, columns }) => {
-  const row = (item, idx) => (
+interface GridLayoutProps {
+  items: ReactNode[];
+  columns: number;
+}
+
+const GridLayout = ({ items, columns }: GridLayoutProps) => {
+  const row = (item: ReactNode, idx: number) => (
     <div key={idx} className="row">
       {item}
     </div>
   );
 
-  const col = (item, idx) => {
-    const sizeName = "col-" + 12 / columns;
+  const col = (item: ReactNode, idx: number) => {
+    const sizeName = `col-${12 / columns}`;
     return (
       <div key={idx} className={sizeName}>
         {item}
@@ -17,8 +21,8 @@ const GridLayout = ({ items, columns }) => {
     );
   };
 
-  const rows = [];
-  let group = [];
+  const rows: ReactNode[] = [];
+  let group: ReactNode[] = [];
   items.forEach((element, idx) => {
     if (idx > 0 && idx % columns === 0) {
       rows.push(row(group, idx));
@@ -31,11 +35,6 @@ const GridLayout = ({ items, columns }) => {
   }
 
   return <div>{rows}</div>;
-};
-
-GridLayout.propTypes = {
-  columns: PropTypes.number,
-  items: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default GridLayout;

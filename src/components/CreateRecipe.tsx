@@ -1,13 +1,20 @@
-import React from 'react';
 import { useNavigate } from "react-router-dom";
-import { recipeStore } from '../data/RecipeStore';
-import RecipeForm from './RecipeForm';
+import type { MappedRecipe } from "../types";
+import { recipeStore } from "../data/RecipeStore";
+import RecipeForm from "./RecipeForm";
 
 const CreateRecipe = () => {
   const navigate = useNavigate();
-  const recipe = {};
+  const recipe: MappedRecipe = {
+    id: 0,
+    name: "",
+    image: "",
+    description: "",
+    rating: 0,
+    ingredients: [],
+  };
 
-  const handleSubmit = (submittedRecipe) => {
+  const handleSubmit = (submittedRecipe: MappedRecipe) => {
     recipeStore.addRecipe(submittedRecipe);
     navigate(import.meta.env.BASE_URL);
   };
@@ -19,7 +26,8 @@ const CreateRecipe = () => {
         <RecipeForm
           submitText="Add Recipe"
           recipe={recipe}
-          handleSubmit={handleSubmit} />
+          handleSubmit={handleSubmit}
+        />
       </div>
     </div>
   );

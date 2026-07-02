@@ -1,254 +1,262 @@
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  background: #FFF8F0;
+	margin: 0;
+	background: #fff8f0;
 }
 
 h2,
 h3,
 h4 {
-  margin: 0;
+	margin: 0;
 }
 
 .app-header {
-  margin: 20px 0px;
-  width: 100%;
-  padding-bottom: 16px;
-  border-bottom: 2px solid #E8DCC8;
+	margin: 20px 0px;
+	width: 100%;
+	padding-bottom: 16px;
+	border-bottom: 2px solid #e8dcc8;
 }
 .app-header .title {
-  display: inline-block;
-  font-family: "Lora", Georgia, serif;
-  color: #C73E1D;
+	display: inline-block;
+	font-family: "Lora", Georgia, serif;
+	color: #c73e1d;
 }
 .app-header .actions {
-  float: right;
-  color: #5B7B45;
-  transition: color 0.2s;
+	float: right;
+	color: #5b7b45;
+	transition: color 0.2s;
 }
 .app-header .actions:hover {
-  color: #C73E1D;
+	color: #c73e1d;
 }
 
 .app-body {
-  margin-top: 24px;
+	margin-top: 24px;
 }
 
 *:focus {
-  outline: none;
+	outline: none;
 }
 
 button {
-  padding: 10px 20px;
-  background: white;
-  border-radius: 30px;
-  border: 2px solid #C73E1D;
-  color: #C73E1D;
-  font-family: "Inter", sans-serif;
-  font-size: 0.9rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
+	padding: 10px 20px;
+	background: white;
+	border-radius: 30px;
+	border: 2px solid #c73e1d;
+	color: #c73e1d;
+	font-family: "Inter", sans-serif;
+	font-size: 0.9rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.2s ease;
 }
 button:hover {
-  background: #C73E1D;
-  color: white;
-  border-color: #C73E1D;
+	background: #c73e1d;
+	color: white;
+	border-color: #c73e1d;
 }
 button:active {
-  background: #A33015;
-  border-color: #A33015;
+	background: #a33015;
+	border-color: #a33015;
 }
 
 .searchBar {
-  position: relative;
-  margin: 0 auto 24px auto;
-  display: block;
-  width: 60%;
+	position: relative;
+	margin: 0 auto 24px auto;
+	display: block;
+	width: 60%;
 }
 
 .search {
-  border-radius: 50px;
-  padding: 12px 18px 12px 20px;
-  border: 2px solid #C8D6B9;
-  background: white;
-  width: 100%;
-  font-family: "Inter", sans-serif;
-  font-size: 0.95rem;
-  color: #2C1810;
-  transition: border-color 0.2s, box-shadow 0.2s;
+	border-radius: 50px;
+	padding: 12px 18px 12px 20px;
+	border: 2px solid #c8d6b9;
+	background: white;
+	width: 100%;
+	font-family: "Inter", sans-serif;
+	font-size: 0.95rem;
+	color: #2c1810;
+	transition:
+		border-color 0.2s,
+		box-shadow 0.2s;
 }
 .search::placeholder {
-  color: #A0A090;
+	color: #a0a090;
 }
 .search:focus {
-  border-color: #5B7B45;
-  box-shadow: 0 0 0 3px rgba(91, 123, 69, 0.15);
-  outline: none;
+	border-color: #5b7b45;
+	box-shadow: 0 0 0 3px rgba(91, 123, 69, 0.15);
+	outline: none;
 }
 
 .searchBar .fa-search {
-  position: absolute;
-  right: 16px;
-  top: 14px;
-  color: #A0A090;
-  font-size: 1.1rem;
+	position: absolute;
+	right: 16px;
+	top: 14px;
+	color: #a0a090;
+	font-size: 1.1rem;
 }
 
 /* Custom CSS for the Rating Widget */
 .rating {
-  margin: 5px;
-  padding: 10px;
-  background: rgba(255, 248, 240, 0.92);
-  position: absolute;
-  top: 0;
-  right: 0;
-  border-radius: 0 0 0 8px;
+	margin: 5px;
+	padding: 10px;
+	background: rgba(255, 248, 240, 0.92);
+	position: absolute;
+	top: 0;
+	right: 0;
+	border-radius: 0 0 0 8px;
 }
 .black {
-  color: #2C1810;
+	color: #2c1810;
 }
 .gold {
-  color: #E8B83A;
+	color: #e8b83a;
 }
 
 /* General CSS for Forms */
 .form-row label {
-  display: block;
-  width: 100%;
-  text-align: left;
-  font-weight: 600;
-  color: #5B7B45;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 4px;
+	display: block;
+	width: 100%;
+	text-align: left;
+	font-weight: 600;
+	color: #5b7b45;
+	font-size: 0.9rem;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	margin-bottom: 4px;
 }
 .form-row input[type="text"] {
-  color: #2C1810;
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0 20px 0;
-  border-radius: 8px;
-  border: 1px solid #D4C9B8;
-  background: white;
-  font-family: "Inter", sans-serif;
-  font-size: 0.95rem;
-  transition: border-color 0.2s, box-shadow 0.2s;
+	color: #2c1810;
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0 20px 0;
+	border-radius: 8px;
+	border: 1px solid #d4c9b8;
+	background: white;
+	font-family: "Inter", sans-serif;
+	font-size: 0.95rem;
+	transition:
+		border-color 0.2s,
+		box-shadow 0.2s;
 }
 .form-row input[type="text"]:focus {
-  outline: none;
-  border-color: #C73E1D;
-  box-shadow: 0 0 0 3px rgba(199, 62, 29, 0.1);
+	outline: none;
+	border-color: #c73e1d;
+	box-shadow: 0 0 0 3px rgba(199, 62, 29, 0.1);
 }
 
 .form-row textarea {
-  color: #2C1810;
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0 20px 0;
-  border-radius: 8px;
-  border: 1px solid #D4C9B8;
-  background: white;
-  font-family: "Inter", sans-serif;
-  font-size: 0.95rem;
-  min-height: 120px;
-  resize: vertical;
-  transition: border-color 0.2s, box-shadow 0.2s;
+	color: #2c1810;
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0 20px 0;
+	border-radius: 8px;
+	border: 1px solid #d4c9b8;
+	background: white;
+	font-family: "Inter", sans-serif;
+	font-size: 0.95rem;
+	min-height: 120px;
+	resize: vertical;
+	transition:
+		border-color 0.2s,
+		box-shadow 0.2s;
 }
 .form-row textarea:focus {
-  outline: none;
-  border-color: #C73E1D;
-  box-shadow: 0 0 0 3px rgba(199, 62, 29, 0.1);
+	outline: none;
+	border-color: #c73e1d;
+	box-shadow: 0 0 0 3px rgba(199, 62, 29, 0.1);
 }
 
 .form-row-tag label {
-  display: block;
-  width: 100%;
-  text-align: left;
-  font-weight: 600;
-  color: #5B7B45;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 4px;
+	display: block;
+	width: 100%;
+	text-align: left;
+	font-weight: 600;
+	color: #5b7b45;
+	font-size: 0.9rem;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	margin-bottom: 4px;
 }
 
 /* Custom CSS for the react-taginput widget */
 .react-tagsinput {
-  width: 100%;
-  background-color: #fff;
-  overflow: hidden;
-  padding-left: 8px;
-  padding-top: 8px;
-  margin: 8px 0 20px 0;
-  border-radius: 8px;
-  border: 1px solid #D4C9B8;
-  transition: border-color 0.2s, box-shadow 0.2s;
+	width: 100%;
+	background-color: #fff;
+	overflow: hidden;
+	padding-left: 8px;
+	padding-top: 8px;
+	margin: 8px 0 20px 0;
+	border-radius: 8px;
+	border: 1px solid #d4c9b8;
+	transition:
+		border-color 0.2s,
+		box-shadow 0.2s;
 }
 .react-tagsinput--focused {
-  border-color: #C73E1D;
-  box-shadow: 0 0 0 3px rgba(199, 62, 29, 0.1);
+	border-color: #c73e1d;
+	box-shadow: 0 0 0 3px rgba(199, 62, 29, 0.1);
 }
 .react-tagsinput span {
-  float: left;
+	float: left;
 }
 
 .react-tagsinput-tag {
-  background-color: #F5F0E8;
-  border-radius: 20px;
-  border: 1px solid #C8D6B9;
-  color: #5B7B45;
-  display: inline-block;
-  font-family: "Inter", sans-serif;
-  font-size: 0.8rem;
-  font-weight: 600;
-  margin-bottom: 5px;
-  margin-right: 5px;
-  padding: 4px 10px;
+	background-color: #f5f0e8;
+	border-radius: 20px;
+	border: 1px solid #c8d6b9;
+	color: #5b7b45;
+	display: inline-block;
+	font-family: "Inter", sans-serif;
+	font-size: 0.8rem;
+	font-weight: 600;
+	margin-bottom: 5px;
+	margin-right: 5px;
+	padding: 4px 10px;
 }
 .react-tagsinput-remove {
-  cursor: pointer;
-  font-weight: bold;
-  color: #5B7B45;
+	cursor: pointer;
+	font-weight: bold;
+	color: #5b7b45;
 }
 .react-tagsinput-tag a::before {
-  content: " ×";
-  color: #5B7B45;
+	content: " ×";
+	color: #5b7b45;
 }
 .react-tagsinput-input {
-  background: transparent;
-  border: 0;
-  color: #2C1810;
-  font-family: "Inter", sans-serif;
-  font-weight: 400;
-  margin-bottom: 6px;
-  margin-top: 1px;
-  outline: none;
-  padding: 5px;
-  width: 80px;
+	background: transparent;
+	border: 0;
+	color: #2c1810;
+	font-family: "Inter", sans-serif;
+	font-weight: 400;
+	margin-bottom: 6px;
+	margin-top: 1px;
+	outline: none;
+	padding: 5px;
+	width: 80px;
 }
 
 .options a {
-  color: #5B7B45;
-  transition: color 0.2s;
+	color: #5b7b45;
+	transition: color 0.2s;
 }
 .options a:hover {
-  color: #C73E1D;
+	color: #c73e1d;
 }
 
 /* View recipe detail section */
 .description {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: #2C1810;
+	font-size: 1.05rem;
+	line-height: 1.7;
+	color: #2c1810;
 }
 
 hr {
-  border: none;
-  border-top: 1px solid #E8DCC8;
-  margin: 20px 0;
+	border: none;
+	border-top: 1px solid #e8dcc8;
+	margin: 20px 0;
 }

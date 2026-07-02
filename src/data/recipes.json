@@ -1,37 +1,37 @@
 {
-  "units": ["pound|s", "gram|s", "cup|s", "bunch|es", "piece|s"],
-  "ingredients": [
-    "cream cheese",
-    "sugar",
-    "quality sausage meat",
-    "fresh parsley",
-    "wonton wrappers",
-    "ground pork"
-  ],
-  "recipes": [
-    {
-      "id": 0,
-      "name": "Cheese Cake",
-      "image": "/img/cheesecake.jpg",
-      "rating": 2.5,
-      "ingredients": [0, 1],
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident cum distinctio temporibus quia eaque quas modi aperiam cumque doloremque, iusto error, neque dignissimos nobis? Aspernatur ratione quos rerum cumque qui!"
-    },
-    {
-      "id": 1,
-      "name": "Scotch Egg",
-      "image": "/img/scotch-egg.jpg",
-      "rating": 4.5,
-      "ingredients": [2, 3],
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident cum distinctio temporibus quia eaque quas modi aperiam cumque doloremque, iusto error, neque dignissimos nobis? Aspernatur ratione quos rerum cumque qui!"
-    },
-    {
-      "id": 2,
-      "name": "Pork Dumpling",
-      "image": "/img/pork-dumpling.jpg",
-      "rating": 5,
-      "ingredients": [4, 5],
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident cum distinctio temporibus quia eaque quas modi aperiam cumque doloremque, iusto error, neque dignissimos nobis? Aspernatur ratione quos rerum cumque qui!"
-    }
-  ]
+	"units": ["pound|s", "gram|s", "cup|s", "bunch|es", "piece|s"],
+	"ingredients": [
+		"cream cheese",
+		"sugar",
+		"quality sausage meat",
+		"fresh parsley",
+		"wonton wrappers",
+		"ground pork"
+	],
+	"recipes": [
+		{
+			"id": 0,
+			"name": "Cheese Cake",
+			"image": "/img/cheesecake.jpg",
+			"rating": 2.5,
+			"ingredients": [0, 1],
+			"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident cum distinctio temporibus quia eaque quas modi aperiam cumque doloremque, iusto error, neque dignissimos nobis? Aspernatur ratione quos rerum cumque qui!"
+		},
+		{
+			"id": 1,
+			"name": "Scotch Egg",
+			"image": "/img/scotch-egg.jpg",
+			"rating": 4.5,
+			"ingredients": [2, 3],
+			"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident cum distinctio temporibus quia eaque quas modi aperiam cumque doloremque, iusto error, neque dignissimos nobis? Aspernatur ratione quos rerum cumque qui!"
+		},
+		{
+			"id": 2,
+			"name": "Pork Dumpling",
+			"image": "/img/pork-dumpling.jpg",
+			"rating": 5,
+			"ingredients": [4, 5],
+			"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident cum distinctio temporibus quia eaque quas modi aperiam cumque doloremque, iusto error, neque dignissimos nobis? Aspernatur ratione quos rerum cumque qui!"
+		}
+	]
 }
